@@ -18,6 +18,7 @@ defmodule WallabyTestGithubActionsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    live "/wtga", IndexLive
   end
 
   # Other scopes may use custom stacks.
