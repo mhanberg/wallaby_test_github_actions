@@ -5,7 +5,10 @@ import Config
 config :wallaby_test_github_actions, WallabyTestGithubActionsWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "lsltvZSggBdBf8qoJGrINo8JrkYvJnfjBdzRAeIH4uf4MILuUyJTLGzo1BSRz+li",
-  server: false
+  server: true
+
+# Configure wallaby driver
+config :wallaby, driver: Wallaby.Chrome
 
 # In test we don't send emails.
 config :wallaby_test_github_actions, WallabyTestGithubActions.Mailer,
