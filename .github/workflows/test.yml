@@ -1,0 +1,27 @@
+name: Test and check format
+on: push
+
+env:
+  OTP_VERSION: 25.0.2
+  ELIXIR_VERSION: 1.13.4
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      MIX_ENV: "test"
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install erlang/elixir
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{ env.OTP_VERSION }}
+          elixir-version: ${{ env.ELIXIR_VERSION }}
+      - name: Download dependencies
+        run: mix deps.get
+      - name: Compile dependencies
+        run: mix compile
+      - name: Check format (lint)
+        run: mix format --check-formatted
+      - name: Run tests
+        run: mix test
