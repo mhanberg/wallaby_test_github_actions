@@ -59,6 +59,7 @@ defmodule WallabyTestGithubActions.MixProject do
   defp aliases do
     [
       setup: ["deps.get"],
+      test: ["esbuild default", "test"],
       "assets.deploy": ["esbuild default --minify", "phx.digest"]
     ]
   end
