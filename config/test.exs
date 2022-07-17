@@ -8,7 +8,9 @@ config :wallaby_test_github_actions, WallabyTestGithubActionsWeb.Endpoint,
   server: true
 
 # Configure wallaby driver
-config :wallaby, driver: Wallaby.Chrome
+config :wallaby,
+  driver: Wallaby.Chrome,
+  screenshot_on_failure: true
 
 # In test we don't send emails.
 config :wallaby_test_github_actions, WallabyTestGithubActions.Mailer,

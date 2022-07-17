@@ -25,3 +25,9 @@ jobs:
         run: mix format --check-formatted
       - name: Run tests
         run: mix test
+
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: Wallaby Screenshots
+          path: ./screenshots/
