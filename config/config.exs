@@ -10,7 +10,11 @@ import Config
 # Configures the endpoint
 config :wallaby_test_github_actions, WallabyTestGithubActionsWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: WallabyTestGithubActionsWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_errors: [
+    view: WallabyTestGithubActionsWeb.ErrorView,
+    accepts: ~w(html json),
+    layout: false
+  ],
   pubsub_server: WallabyTestGithubActions.PubSub,
   live_view: [signing_salt: "qsP4IQoJ"]
 
@@ -21,7 +25,8 @@ config :wallaby_test_github_actions, WallabyTestGithubActionsWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :wallaby_test_github_actions, WallabyTestGithubActions.Mailer, adapter: Swoosh.Adapters.Local
+config :wallaby_test_github_actions, WallabyTestGithubActions.Mailer,
+  adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
